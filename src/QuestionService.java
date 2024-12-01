@@ -2,16 +2,16 @@ import java.util.Scanner;
 
 public class QuestionService {
 
-    Question[] questions = new Question[5];
+    Question[] questions = new Question[5];  //array of question's references
     String[] selection = new String[5];
 
     public QuestionService() {
+        //creating the objects and passing values
         questions[0] = new Question(1, "size of int", "2", "6", "4", "8", "4");
         questions[1] = new Question(2, "size of double", "2", "6", "4", "8", "8");
         questions[2] = new Question(3, "size of char", "2", "6", "4", "8", "2");
         questions[3] = new Question(4, "size of long", "2", "6", "4", "8", "8");
         questions[4] = new Question(5, "size of boolean", "1", "2", "4", "8", "1");
-
 
     }
 
@@ -24,8 +24,8 @@ public class QuestionService {
             System.out.println(q.getOpt2());
             System.out.println(q.getOpt3());
             System.out.println(q.getOpt4());
-            Scanner sc = new Scanner(System.in);
-            selection[i] = sc.nextLine();
+            Scanner sc = new Scanner(System.in);  //taking user input
+            selection[i] = sc.nextLine(); // storing the user inout in the selection variable
             i++;
 
         }
@@ -40,9 +40,9 @@ public class QuestionService {
         int score = 0;
         for (int i = 0; i < questions.length; i++) {
             Question que = questions[i];
-            String answer = que.getAnswer();
+            String actualAnswer = que.getAnswer();
             String userAnswer = selection[i];
-            if (answer.equals(userAnswer)) {
+            if (actualAnswer.equals(userAnswer)) {
                 score++;
             }
         }
